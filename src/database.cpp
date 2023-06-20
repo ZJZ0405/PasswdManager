@@ -21,9 +21,9 @@ DataBase::DataBase(const std::string path) : sql{nullptr}, stmt{nullptr}, result
 	fileAppender->setLayout(std::unique_ptr<log4cplus::Layout>(new log4cplus::PatternLayout(pattern)));
 
 	databaseLog = log4cplus::Logger::getInstance(LOG4CPLUS_TEXT("DATABASE"));
-	databaseLog.setLogLevel(log4cplus::ERROR_LOG_LEVEL); //默认打开所有日志输出
+	databaseLog.setLogLevel(log4cplus::ALL_LOG_LEVEL); //默认打开所有日志输出
 
-	databaseLog.addAppender(consoleAppender);
+	//databaseLog.addAppender(consoleAppender);
 	databaseLog.addAppender(fileAppender);
 #pragma endregion
 
